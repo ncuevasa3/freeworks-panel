@@ -1,1 +1,9 @@
-<p>dashboard works!</p>
+<div *ngFor="let proyecto of proyectos" class="card">
+  <h2>{{ proyecto.nombre }}</h2>
+  <p><strong>Cliente:</strong> {{ proyecto.cliente }}</p>
+  <p><strong>Estado:</strong> {{ proyecto.estado }}</p>
+  <p><strong>Progreso:</strong> {{ proyecto.progreso }}%</p>
+  <p><strong>Prioridad:</strong> {{ proyecto.prioridad }}</p>
+  <p><strong>Fecha límite:</strong> {{ proyecto.fechaLimite }}</p>
+  <p><strong>Comentarios:</strong> {{ proyecto.comentarios }}</p>
+</div>
