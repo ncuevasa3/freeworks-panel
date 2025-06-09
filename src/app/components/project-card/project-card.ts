@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';  // IMPORTAR CommonModule
+import { Project } from '../../services/mock-data.service';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],  // AGREGAR CommonModule aquí
   templateUrl: './project-card.html',
-  styleUrl: './project-card.scss'
+  styleUrls: ['./project-card.scss']
 })
 export class ProjectCard {
-
+  @Input() project!: Project;
 }

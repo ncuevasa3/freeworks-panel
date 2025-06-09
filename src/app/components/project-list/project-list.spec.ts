@@ -1,23 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { MockDataService, Project } from '../../services/mock-data.service';
+import { ProjectCard } from '../project-card/project-card';
 
-import { ProjectList } from './project-list';
+@Component({
+  selector: 'app-project-list',
+  standalone: true,
+  imports: [ProjectCard],
+  templateUrl: './project-list.html',
+  styleUrls: ['./project-list.scss']
+})
+export class ProjectList implements OnInit {
+  projects: Project[] = [];
 
-describe('ProjectList', () => {
-  let component: ProjectList;
-  let fixture: ComponentFixture<ProjectList>;
+  constructor(private mockService: MockDataService) {}
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ProjectList]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ProjectList);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+    this.projects = this.mockService.getProjects();
+  }
+}

@@ -1,1 +1,14 @@
-<p>project-card works!</p>
+<div class="card">
+  <h2>{{ project.name }}</h2>
+  <p><strong>Cliente:</strong> {{ project.client }}</p>
+  <p><strong>Estado:</strong> {{ project.status }}</p>
+  <p><strong>Progreso:</strong> {{ project.progress }}%</p>
+  <p><strong>Prioridad:</strong> {{ project.priority }}</p>
+  <p><strong>Fecha límite:</strong> {{ project.dueDate | date }}</p>
+  <div>
+    <strong>Comentarios:</strong>
+    <ul>
+      <li *ngFor="let comment of project.comments">{{ comment }}</li>
+    </ul>
+  </div>
+</div>
